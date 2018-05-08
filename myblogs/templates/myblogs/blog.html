@@ -1,0 +1,17 @@
+{%extends 'base.html'%} {%block content%}
+<div class="container">
+    <div class="card mt-5">
+        <div class="card-header">
+            {{blog.title}}
+        </div>
+        <div class="card-body">
+            {{blog.content}}
+        </div>
+        <div class="card-footer">
+            <a class="btn btn-success text-white" href="{%url 'myblogs:add_blog'%}">+ Add</a>
+            <a class="btn btn-warning text-white">- Remove</a>
+            <a class="btn btn-primary text-white">Edit</a>
+        </div>
+    </div>
+</div>
+{%endblock content%}

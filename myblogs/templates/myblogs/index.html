@@ -1,0 +1,31 @@
+{%extends 'base.html'%} {%block content%}
+<div class="container">
+    {%for item in items%}
+    <div class="row">
+        <div class="card col-md-12 mt-2 bg-light">
+            <div class="card-body">
+                <div class="card-title">
+                    <h5>{{item.title}}</h5>
+                    <small>{{item.date_added}}</small>
+                </div>
+                <div class="card-text">
+                    {{item.content|truncatewords:50}}...
+                </div>
+                <small>
+                    <a href="{%url 'myblogs:blog' item.id%}">learn more >></a>
+                </small>
+            </div>
+        </div>
+    </div>
+    {%empty%}
+    <h2>there is no blog has written</h2>
+    {%endfor%}
+    <div class="row">
+        <div class="col-md-4 center mt-2">
+            <a class="btn btn-primary" href="{%url 'myblogs:add_blog'%}">
+                add new blog
+            </a>
+        </div>
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,56 @@
+{%load static%}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="{%static 'myblogs/css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{%static 'myblogs/css/blogstyle.css'%}">
+    <script src="{%static 'myblogs/jquery.js'%}"></script>
+    <script src="{%static 'myblogs/js/bootstrap.js'%}"></script>
+</head>
+
+<body class='bg-dark'>
+    <nav class="navbar navbar-light navbar-expand-lg bg-info">
+        <a href="#" class='navbar-brand'>
+            <!-- <div class="icondiv"></div> -->
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a href="{% url 'myblogs:index'%}" class="nav-item nav-link text-white">myBlogs</a>
+                <a href="#" class="nav-item nav-link text-white">Blog Playground</a>
+                <a href="#" class="nav-item nav-link text-white">MyProfile</a>
+            </div>
+        </div>
+        <ul class="navbar-nav mr-autotext-white">
+            {%if user.is_authenticated%}
+            <li class="nav-item">
+                <a href="#" class="nav-link text-white">welcome, {{user.username}}</a>
+            </li>
+            <li class="nav-item">
+                <a href="{%url 'users:logout'%}" class="nav-link text-white">Logout</a>
+            </li>
+            {%else%}
+            <li class="nav-item">
+                <a href="{%url 'users:register'%}" class="nav-link text-white">Regist</a>
+            </li>
+            <li class="nav-item">
+                <a href="{%url 'users:login'%}" class="nav-link text-white">
+                    Login
+                </a>
+            </li>
+            {%endif%}
+        </ul>
+    </nav>
+    {%block content%}{%endblock content%}
+    <!-- <p>footer</p> -->
+</body>
+
+</html>

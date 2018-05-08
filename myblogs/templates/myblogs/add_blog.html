@@ -1,0 +1,17 @@
+{%extends 'base.html'%} {%block content%}
+
+<div class="container ">
+    <div class="row">
+        <h2>add new blog</h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <form action="{% url 'myblogs:add_blog'%}" method="POST">
+                {%csrf_token%} {{form.as_p}}
+                <a class='btn btn-warning float-right ml-2' href="{%url 'myblogs:index'%}">quit to main</a>
+                <button name="submit" class='btn btn-primary float-right'>add Blog</button>
+            </form>
+        </div>
+    </div>
+</div>
+{%endblock content%}

@@ -1,0 +1,13 @@
+{%extends 'base.html'%} {%block header%}
+<h2>Login to your account</h2>
+{%endblock header%} {%block content%}
+<div class="container">
+    <div class="col-md4 offset-md-4 mt-5">
+        <form method='POST' action="{%url 'users:login'%}">
+            {%csrf_token%} {{form.as_p}}
+            <button class='btn btn-primary'>Login</button>
+            <input type="hidden" name="next" value="{%url 'myblogs:index'%}">
+        </form>
+    </div>
+</div>
+{%endblock content%}
